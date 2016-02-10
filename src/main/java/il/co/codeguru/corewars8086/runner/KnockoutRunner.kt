@@ -12,7 +12,7 @@ class KnockoutRunner(val finalLevel: Boolean, level: Int, wars: Int, warriorsPer
     override fun onEndWars() {
         if (!finalLevel && level != Params.Knockout4) {
             val groups = competition.warriorRepository.warriorGroups.sortedByDescending { it.groupScore }.take(4) // Only 1 knockout level for now and then final.
-            val newDir = Directory[level + 1].toFile()
+            val newDir = Directory[Params.Knockout4].toFile()
             val dir = dir.toFile()
             if (newDir.exists()) newDir.deleteRecursively()
             newDir.mkdirs()
